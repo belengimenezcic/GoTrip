@@ -2,7 +2,10 @@
     background-color: #605DEC;
     color: white;
   }
-  
+
+.btn-link {
+  color: #605DEC;
+}
 
 .mainContainer {
     background-color: #F8F9FD;
@@ -22,5 +25,5 @@
     text-decoration: underline;
     margin-top: 20px;
     cursor: pointer;
-    
+
 }

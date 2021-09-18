@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   photoUrl: string;
   fileName: string;
   selectedFile?: File;
+
   constructor(
     private formBuilder: FormBuilder,
   ) {
@@ -74,6 +75,18 @@ export class ProfileComponent implements OnInit {
       const file: File = event.target.files[0];
       if (file) {
         this.selectedFile = file;
+        const parseFile = new Parse.File(this.selectedFile.name, this.selectedFile);
+        const user = Parse.User.current()
+        user?.set('photoPreview', parseFile);
+        user?.save().then(() => {
+          // Execute any logic that should take place after the object is saved
+          const photo = user.get('photoPreview');
+          this.photoUrl = photo.url();
+        }, (error) => {
+          // Execute any logic that should take place if the save fails.
+          // error is a Parse.Error with an error code and message.
+          alert('Failed to upload photo ' + error.message);
+        });
       }
     }
   }
