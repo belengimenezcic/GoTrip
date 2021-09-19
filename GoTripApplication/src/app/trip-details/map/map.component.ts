@@ -45,23 +45,31 @@ export class MapComponent implements OnInit, OnDestroy {
       accessToken: this.env.MAPBOX_API,
     }).addTo(this.map);
 
+
     // Initialise the FeatureGroup to store editable layers
     var editableLayers = new L.FeatureGroup();
     this.map.addLayer(editableLayers);
 
     var drawPluginOptions = {
       position: 'topleft',
+      edit: {
+        featureGroup: editableLayers, //REQUIRED!!
+        remove: true,
+        poly: {
+          allowIntersection: true
+        }
+      },
       draw: {
         polygon: {
-          allowIntersection: true, // Restricts shapes to simple polygons
-          message: 'Click on the <strong>Finish</strong> button to close the chosen perimeter',
+          allowIntersection: true,
+          showArea: true,
           drawError: {
             color: '#e1e100', // Color the shape will turn when intersects
-            message: '<strong>Oh snap!</strong> you can\'t draw that!' // Message that will show when intersect
+            message: '<strong>Oh no!</strong> try again!' // Message that will show when intersect
           },
           shapeOptions: {
             color: '#97009c'
-          }
+          },
         },
         // disable toolbar item by setting it to false
         polyline: false,
@@ -69,29 +77,28 @@ export class MapComponent implements OnInit, OnDestroy {
         rectangle: false,
         marker: false,
         },
-      edit: {
-        featureGroup: editableLayers, //REQUIRED!!
-        remove: true
-      }
+
     };
 
     // Initialise the draw control and pass it the FeatureGroup of editable layers
     var drawControl = new L.Control.Draw(drawPluginOptions);
     this.map.addControl(drawControl);
 
-    var editableLayers = new L.FeatureGroup();
-    this.map.addLayer(editableLayers);
+  /*  var editableLayers = new L.FeatureGroup();
+    this.map.addLayer(editableLayers); */
 
     this.map.on('draw:created', function(e:any) {
       var type = e.layerType,
         layer = e.layer;
+        editableLayers.addLayer(layer);
 
    if (type === 'marker') {
         layer.bindPopup('A popup!');
       }
 
-      editableLayers.addLayer(layer);
     });
+
+
 
 
     for (let i = 0; i < this.allSights.length; i++) {
