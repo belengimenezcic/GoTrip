@@ -7,7 +7,6 @@ import { getTripDetails } from  './getTripDetails.service';
   providedIn: 'root'
 })
 export class GetAddedSightService {
-
   addedSights:{}[] = [];
 
   constructor(private getTripDetails: getTripDetails) { }
@@ -41,7 +40,6 @@ export class GetAddedSightService {
           votes: results[i].get('totalVotes')
         })
       }
-      console.log(this.addedSights)
     })
     .catch(function(error) {
       console.log(error)

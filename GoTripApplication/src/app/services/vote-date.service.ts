@@ -40,11 +40,9 @@ export class VoteDateService {
     let datetList = await queryDate.find();
 
     if(!datetList[0]){
-      console.log('No date row found');
       return
     }
     date.id = datetList[0].id;
-
 
     // Check if user have voted before in one of the three options
     await datetList[0].relation(`usersVotedOne`).query().each(voters=>{
@@ -91,9 +89,7 @@ export class VoteDateService {
     } else {
       // Save this user first vote
       await saveNewVote()
-      
     }
-
   }
 
   /*
@@ -121,7 +117,6 @@ export class VoteDateService {
     let dateList = await queryDate.find()
     
     if(!dateList[0]){
-      console.log('No date row found');
       return
     }
 
@@ -170,7 +165,6 @@ export class VoteDateService {
     let dateList = await queryDate.find()
     
     if(!dateList[0]){
-      console.log('No budget row found');
       return
     }
 
@@ -181,5 +175,4 @@ export class VoteDateService {
     return totalDateVotes;
 
   }
- 
 }

@@ -11,9 +11,7 @@ import { currentUser } from './getCurrentUserData.service';
 export class createNewTrip {
     invitedFriends: {email:String, id:String}[] = []; // list of emails
 
-    constructor(private currentUser: currentUser){
-
-    }
+    constructor(private currentUser: currentUser){ }
     /*
     * Get the email informed in the input and save it in the
     * variable invitedFriend. It store and email and create an id

@@ -1,14 +1,12 @@
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatetimerangepickerModule } from "angular-datetimerangepicker";
-import { Router, RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { catchError, map } from 'rxjs/operators';
-
 
 import { getTrip } from './services/getTrip.service';
 import { createNewTrip } from './services/newTripForm.service';
@@ -18,7 +16,6 @@ import { acceptInvitation } from './services/acceptInvitation.service';
 import { rejectInvitation } from './services/rejectInvitation.service';
 import { finishTrip } from './services/finishTrip.service';
 import { NoteService } from './services/getNotesData.service';
-
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -56,7 +53,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
-
 //This is the route array
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -65,7 +61,6 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUpPageComponent },
   { path: 'forgot-password', component: ForgotPasswordPageComponent },
   { path: 'invitation', component: InvitationPageComponent },
-
   {
     path: 'details/:id', component: TripDetailsComponent, canActivate: [AuthGuard], children: [
       { path: 'sights', component: AllSightsComponent },
@@ -76,9 +71,7 @@ const appRoutes: Routes = [
   },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
-
 ];
-
 
 @NgModule({
   declarations: [

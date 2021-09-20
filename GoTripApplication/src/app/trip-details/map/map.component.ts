@@ -45,7 +45,6 @@ export class MapComponent implements OnInit, OnDestroy {
       accessToken: this.env.MAPBOX_API,
     }).addTo(this.map);
 
-
     // Initialise the FeatureGroup to store editable layers
     var editableLayers = new L.FeatureGroup();
     this.map.addLayer(editableLayers);
@@ -68,7 +67,7 @@ export class MapComponent implements OnInit, OnDestroy {
             message: '<strong>Oh no!</strong> try again!' // Message that will show when intersect
           },
           shapeOptions: {
-            color: '#97009c'
+            color: '#605DEC'
           },
         },
         // disable toolbar item by setting it to false
@@ -76,33 +75,23 @@ export class MapComponent implements OnInit, OnDestroy {
         circle: false, // Turns off this drawing tool
         rectangle: false,
         marker: false,
-        },
-
+      },
     };
 
     // Initialise the draw control and pass it the FeatureGroup of editable layers
     var drawControl = new L.Control.Draw(drawPluginOptions);
     this.map.addControl(drawControl);
 
-  /*  var editableLayers = new L.FeatureGroup();
-    this.map.addLayer(editableLayers); */
-
-    this.map.on('draw:created', function(e:any) {
+    this.map.on('draw:created', function(e: any) {
       var type = e.layerType,
         layer = e.layer;
-      
-
-   if (type === 'marker') {
+      editableLayers.addLayer(layer);
+      if (type === 'marker') {
         layer.bindPopup('A popup!');
       }
-
     });
 
-
-
-
     for (let i = 0; i < this.allSights.length; i++) {
-      console.log('working')
       let lat = this.allSights[i].lat;
       let lon = this.allSights[i].lon;
       let title = this.allSights[i].title;
@@ -111,13 +100,10 @@ export class MapComponent implements OnInit, OnDestroy {
         .openPopup();
     }
 
-
-
   }
 
   async removeSight(xid: any) {
     //remove the selected sight
-    console.log(xid)
     await this.AddSightService.removeSight({ sightServerId: xid })
 
     //clean list
@@ -132,5 +118,4 @@ export class MapComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.getAddedSightService.cleanSightList()
   }
-
 }

@@ -26,7 +26,6 @@ export class SightCardComponent implements OnInit {
   openSightDetail(){
     this.moreInfoService.moreInfoAboutSight({...this.sight, hasAcceptedInvitation: this.hasAcceptedInvitation, isTheOwner: this.isTheOwner}) // save data on a service
     this.route.navigate(['../place/'], {relativeTo: this.activeRoute}) //open new page
-    
   }
   /*
   * Vote will store the user in the Parse
@@ -36,10 +35,10 @@ export class SightCardComponent implements OnInit {
     this.voteService.addVote(this.sight);
     this.voteService.getUserVotes();
   }
+
   removeVote(el:any){
     el.stopPropagation()
     this.voteService.removeVote(this.sight)
-  
   }
   /*
   * Add will go to the sight class and turn the item addedToTrip into true
@@ -53,5 +52,4 @@ export class SightCardComponent implements OnInit {
     this.addSightService.removeSight(this.sight)
     el.stopPropagation()
   }
-
 }

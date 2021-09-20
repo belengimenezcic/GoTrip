@@ -13,10 +13,7 @@ export class DashboardComponent implements OnInit {
   oldTrips: {}[] =[]; // List of finished trips
   isLoading: boolean = true; // a Boolean to activate or deactivate the loading spinner
 
-  constructor(private getTrip: getTrip, private currentUser: currentUser) { 
-
-
-  }
+  constructor(private getTrip: getTrip, private currentUser: currentUser) { }
 
   async ngOnInit(): Promise<any> {
     this.isLoading = true; // Show the spinner
@@ -35,5 +32,4 @@ export class DashboardComponent implements OnInit {
     this.currentTrips = this.getTrip.currentTrips;
     this.oldTrips = this.getTrip.oldTrips;
   }
-
 }

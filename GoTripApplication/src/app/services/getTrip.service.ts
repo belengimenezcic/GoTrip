@@ -33,9 +33,7 @@ export class getTrip {
     currentTrips:{}[] = []; // Array to keep the open trips
     oldTrips:{}[] = []; // Array to keep the finshed trips
 
-    constructor(private currentUser: currentUser){
-        
-    }
+    constructor(private currentUser: currentUser){ }
 
     /*
     * This is to clean the currenTrips and oldTrips and avoid duplicated infromation
@@ -118,5 +116,4 @@ export class getTrip {
             console.log(err)
         }  
     }
-
 };

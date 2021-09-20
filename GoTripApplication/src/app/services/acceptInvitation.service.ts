@@ -1,5 +1,5 @@
 /*
-* There are 2 situation where the user can accept invitation: 
+* There are 2 places where the user can accept invitation: 
 * 1 - in the dashboard
 * 2 - In the detail page
 */
@@ -13,9 +13,7 @@ import { getTrip } from './getTrip.service';
 @Injectable()
 export class acceptInvitation {
 
-    constructor(private currentUser: currentUser, private getTrip: getTrip){
-        
-    }
+    constructor(private currentUser: currentUser, private getTrip: getTrip){ }
 
     async accept(id:any){
         let tripsPlan = new Parse.Object('TripsPlan');

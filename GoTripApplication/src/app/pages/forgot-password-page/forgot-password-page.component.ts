@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as Parse from 'parse';
 
 @Component({
@@ -6,21 +6,16 @@ import * as Parse from 'parse';
   templateUrl: './forgot-password-page.component.html',
   styleUrls: ['./forgot-password-page.component.css']
 })
-export class ForgotPasswordPageComponent implements OnInit {
-  email = ''
-  showSuccess: boolean = false
-
+export class ForgotPasswordPageComponent {
+  email = '';
+  showSuccess: boolean = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-
-
-  }
 
   onKey(event: any) { // without type info
     this.email = event.target.value
   }
+
   onClickMe() {
     // alert(this.email)
     const parse = Parse.User.requestPasswordReset(this.email)
@@ -33,5 +28,4 @@ export class ForgotPasswordPageComponent implements OnInit {
         alert("Error: " + error.code + " " + error.message);
       });
   }
-
 }

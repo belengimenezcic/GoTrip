@@ -19,9 +19,7 @@ export class BasicInfoComponent implements OnInit {
   @Input() tripId = '';
   @Output() updateDetailsData = new EventEmitter;
 
-  constructor(private finishTrip: finishTrip, private router: Router, private rejectInvitation:rejectInvitation, private acceptInvitation: acceptInvitation, private deleteTripService:DeleteTripService ) {
-   
-   }
+  constructor(private finishTrip: finishTrip, private router: Router, private rejectInvitation:rejectInvitation, private acceptInvitation: acceptInvitation, private deleteTripService:DeleteTripService ) { }
 
   ngOnInit(): void {
 
@@ -52,5 +50,4 @@ export class BasicInfoComponent implements OnInit {
       this.updateDetailsData.emit() // Ask the details to update the page
     })
   }
-
 }

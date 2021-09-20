@@ -1,29 +1,28 @@
 .btn {
-    background-color: #605DEC;
-    color: white;
-  }
+  background-color: #605DEC;
+  color: white;
+}
 
 .btn-link {
   color: #605DEC;
 }
 
 .mainContainer {
-    background-color: #F8F9FD;
-    padding: 40px 0;
-    min-height: 100vh;
+  background-color: #F8F9FD;
+  padding: 40px 0;
+  min-height: 100vh;
 }
 
 .profile-container{
-    background-color:white;
-    border: 1px solid #EBECF0;
-    box-sizing: border-box;
-    border-radius: 6px;
+  background-color:white;
+  border: 1px solid #EBECF0;
+  box-sizing: border-box;
+  border-radius: 6px;
 }
 
 .linkBtn {
-    color: #605DEC;
-    text-decoration: underline;
-    margin-top: 20px;
-    cursor: pointer;
-
+  color: #605DEC;
+  text-decoration: underline;
+  margin-top: 20px;
+  cursor: pointer;
 }

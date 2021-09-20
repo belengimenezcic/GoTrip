@@ -15,7 +15,6 @@ export class finishTrip {
             await tripPlan.save({"finished": true}) // Connect to Parse and change finished to true
         }catch(err){
             console.log(err)
-        }
-        
+        } 
     }
 }

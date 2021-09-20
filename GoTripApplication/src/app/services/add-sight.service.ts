@@ -31,16 +31,13 @@ export class AddSightService {
     * Save the update in Parse
     */
     await sight.save().then((res:any)=>{
-    
-      this.updateUISightVoted.next(); // Update the UI
-    }, (err:any)=>{
-     
-    })
-  
+        this.updateUISightVoted.next(); // Update the UI
+      }, (err:any)=>{
+        console.log(err)
+      })
     }
 
     async removeSight(place:any){
-    
       let Sight = Parse.Object.extend('Sight');
       let sight = new Sight();
       sight.id = place.sightServerId;
@@ -51,12 +48,10 @@ export class AddSightService {
       * Save the update in Parse
       */
       await sight.save().then((res:any)=>{
-       
-        this.updateUISightVoted.next(); // Update the UI
-      }, (err:any)=>{
-     
-      })
-    
+          this.updateUISightVoted.next(); // Update the UI
+        }, (err:any)=>{
+          console.log(err)
+        })
       }
 
       async getSightsAdded(){
@@ -84,5 +79,4 @@ export class AddSightService {
         }
         return listSightsAdded // Return a array witht eh XID and total votes
       }
-
 }

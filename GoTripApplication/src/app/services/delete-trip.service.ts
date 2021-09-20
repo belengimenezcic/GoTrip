@@ -13,9 +13,8 @@ export class DeleteTripService {
   constructor() { }
 
   async deleteTrip(tripId: string){
-    console.log('Starting to delete' +tripId)
+   
     try{
-
       let TripPlan = Parse.Object.extend('TripsPlan');
       let tripPlan = new TripPlan()
       tripPlan.id = tripId
@@ -31,7 +30,6 @@ export class DeleteTripService {
       budget.id = findBudget[0].id
       
       await budget.destroy()
-      console.log('budget removed')
 
       //Find date and delete it
       let Date = Parse.Object.extend('Date')
@@ -44,8 +42,7 @@ export class DeleteTripService {
       date.id = findDate[0].id
       
       await date.destroy()
-      console.log('Dates removed')
-
+      
       //Find NonUserInvited and delete it
       let Friends = Parse.Object.extend('NonUserInvited')
       let friends = new Friends();
@@ -56,12 +53,9 @@ export class DeleteTripService {
 
       if(findFriends[0]){
         friends.id = findFriends[0].id
-      
         await friends.destroy()
-        console.log('Friends removed')
       }
       
-
       //Find sights and delete it
       let Sight = Parse.Object.extend('Sight')
       let sight = new Sight();
@@ -72,22 +66,14 @@ export class DeleteTripService {
 
       if(findSights[0]){
         sight.id = findSights[0].id
-      
         await sight.destroy()
-        console.log('sights removed')
-
       }
      
-
       ///Find tripPlan and delete it
-
       await tripPlan.destroy()
-      console.log('trip removed')
-
+      
     } catch(err){
       console.log(err)
     }
-
-    }
-    
+  }
 }

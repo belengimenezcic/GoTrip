@@ -8,29 +8,29 @@ import { createNewTrip } from '../services/newTripForm.service';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
-export class BreadcrumbComponent implements OnInit {
-  @Input('origin') origin:any;
+export class BreadcrumbComponent{
+  @Input('origin') origin:any; // Receive data about from where the breadcrumb is being loading
 
   constructor(private router: Router, private route: ActivatedRoute, private createNewTrip: createNewTrip ) { }
 
-  ngOnInit(): void {
-  
-  }
   /*
-  * Function to sen dthe user to teh previous page. It uses the origin variable to
+  * Function to send the user to the previous page. It uses the origin variable to
   * decide to whenre they shoudl go back.
   */
   goBack(){
-   
     if(this.origin == 'newTripForm' || this.origin == 'tripDetails'){
+
       this.createNewTrip.cleanInvitationList(); // Clean the email list
       this.router.navigate(['../dashboard'])
+
     } else if (this.origin == 'moreInfo'){
-      // If came from moreInfo - page with details about the sight
+
+      // If came from moreInfo will go back to the grid of sights to visit
       this.router.navigate(['../sights'], {relativeTo: this.route})
+
     } else if (this.origin == 'profile'){
-       // If came from profile page - go t the dashboard
-     
+      
+       // If came from profile page move the user to the dashboard
        this.router.navigate(['/dashboard'])
     } 
   }

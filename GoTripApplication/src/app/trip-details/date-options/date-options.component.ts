@@ -90,8 +90,6 @@ export class DateOptionsComponent implements OnInit, DoCheck {
   }
 
   saveDatePreferences(option: string){
-  
     this.voteDateService.voteDate(option)
   }
-
 }

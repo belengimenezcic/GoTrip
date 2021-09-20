@@ -8,7 +8,6 @@ import * as Parse from "parse";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   profileForm = this.formBuilder.group({
     name: '',
     email: '',

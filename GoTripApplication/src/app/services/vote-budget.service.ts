@@ -40,7 +40,6 @@ export class VoteBudgetService {
     let budgetList = await queryBudget.find()
     
     if(!budgetList[0]){
-      console.log('No budget row found');
       return
     }
     budget.id = budgetList[0].id;
@@ -90,11 +89,8 @@ export class VoteBudgetService {
     } else {
       // Save this user first vote
       await saveNewVote()
-      
     }
-
   }
-
 
   /*
   * Find what budget option the user voted
@@ -121,7 +117,6 @@ export class VoteBudgetService {
     let budgetList = await queryBudget.find()
     
     if(!budgetList[0]){
-      
       return
     }
 

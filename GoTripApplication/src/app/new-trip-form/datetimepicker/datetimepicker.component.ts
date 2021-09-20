@@ -10,8 +10,6 @@ export class DatetimepickerComponent implements OnInit {
   @Output() sendData = new EventEmitter();
 
   daterangepickerOptions = {
-    //startDate: "10/06/2021",
-    //endDate: "09/02/2022",
     format: "DD/MM/YYYY",
     disableWeekEnds: false,
     disabledDays: [],
@@ -24,18 +22,12 @@ export class DatetimepickerComponent implements OnInit {
     noDefaultRangeSelected: true
   };
 
-
-
   constructor() { }
 
   ngOnInit(): void {
   }
+
   rangeSelected(el:any){
-    this.sendData.emit({date: el, id: this.formId});
-    console.log('=====> Date selected')
-   
-  
-
+    this.sendData.emit({date: el, id: this.formId}); 
   }
-
 }
