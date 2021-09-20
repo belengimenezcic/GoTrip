@@ -25,7 +25,6 @@ export class SightDetailComponent implements OnInit, OnDestroy{
     this.updateUi = this.voteService.updateUISightVoted.subscribe(()=>{
       this.router.navigate(['../place'],{relativeTo:this.activeRoute})
     })
-    
   }
 
   voteSight(){
@@ -40,6 +39,4 @@ export class SightDetailComponent implements OnInit, OnDestroy{
     this.moreInfoService.cleanMoreInfoAboutSight();
     this.updateUi.unsubscribe();
   }
-
-
 }

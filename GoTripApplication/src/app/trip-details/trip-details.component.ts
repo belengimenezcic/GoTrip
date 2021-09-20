@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
 
 import { getTripDetails } from '../services/getTripDetails.service';
 import { VoteBudgetService } from '../services/vote-budget.service';
@@ -23,12 +22,8 @@ export class TripDetailsComponent implements OnInit {
   private updateUIBudget: any; // update UI after some change is made in the budget
   private updateUIDate: any; // update UI after user choose date
 
-
-
   constructor(private router: Router, private activeRoute: ActivatedRoute, private getTripDetails: getTripDetails, private voteBudgetService:VoteBudgetService, private voteDateService: VoteDateService, private getFriendsService: GetFriendsService) { 
     this.activeRoute.params.subscribe(el=> this.tripId = el['id']) // Get id from the URL
-  
-
   }
 
   getInfoAboutThisTrip(){
@@ -72,10 +67,6 @@ export class TripDetailsComponent implements OnInit {
           this.currentTripFullData.invitedFriends = [...this.currentTripFullData.invitedFriends, ...res];
          
         })
-
-
-        
-    console.log(this.currentTripFullData)
       });
     }
   }
@@ -89,8 +80,6 @@ export class TripDetailsComponent implements OnInit {
     this.updateUIDate = this.voteDateService.updateUIDateChanged.subscribe(el=>{
       this.getInfoAboutThisTrip()
     })
-
-    
   }
 
   ngOnDestroy(){
@@ -105,7 +94,4 @@ export class TripDetailsComponent implements OnInit {
     this.updateUIBudget.unsubscribe(); 
     this.updateUIDate.unsubscribe();
   }
-
-  
-
 }
