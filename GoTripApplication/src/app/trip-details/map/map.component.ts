@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { getTripDetails } from '../../services/getTripDetails.service';
-import * as Parse from "parse";
 import { env } from 'src/app/env';
 
 import { GetAddedSightService } from '../../services/get-added-sight.service';
@@ -46,7 +45,6 @@ export class MapComponent implements OnInit, OnDestroy {
       accessToken: this.env.MAPBOX_API,
     }).addTo(this.map);
 
-
     // Initialise the FeatureGroup to store editable layers
     var editableLayers = new L.FeatureGroup();
     this.map.addLayer(editableLayers);
@@ -69,7 +67,7 @@ export class MapComponent implements OnInit, OnDestroy {
             message: '<strong>Oh no!</strong> try again!' // Message that will show when intersect
           },
           shapeOptions: {
-            color: '#97009c'
+            color: '#605DEC'
           },
         },
         // disable toolbar item by setting it to false
@@ -77,31 +75,22 @@ export class MapComponent implements OnInit, OnDestroy {
         circle: false, // Turns off this drawing tool
         rectangle: false,
         marker: false,
-        },
-
+      },
     };
 
     // Initialise the draw control and pass it the FeatureGroup of editable layers
     var drawControl = new L.Control.Draw(drawPluginOptions);
     this.map.addControl(drawControl);
 
-
-    this.map.on('draw:created', function(e:any) {
+    this.map.on('draw:created', function(e: any) {
       var type = e.layerType,
         layer = e.layer;
-        editableLayers.addLayer(layer);
-
-        console.log(e.layer.editing.latlngs[0]);
-
-
-   if (type === 'marker') {
+      editableLayers.addLayer(layer);
+      console.log(e.layer.editing.latlngs[0]);
+      if (type === 'marker') {
         layer.bindPopup('A popup!');
       }
-
     });
-
-
-
 
     for (let i = 0; i < this.allSights.length; i++) {
       console.log('working')
@@ -114,7 +103,6 @@ export class MapComponent implements OnInit, OnDestroy {
     }
 
   }
-
 
   async removeSight(xid: any) {
     //remove the selected sight
