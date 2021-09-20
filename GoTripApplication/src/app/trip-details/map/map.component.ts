@@ -85,6 +85,7 @@ export class MapComponent implements OnInit, OnDestroy {
     this.map.on('draw:created', function(e:any) {
       var type = e.layerType,
         layer = e.layer;
+      
 
    if (type === 'marker') {
         layer.bindPopup('A popup!');
