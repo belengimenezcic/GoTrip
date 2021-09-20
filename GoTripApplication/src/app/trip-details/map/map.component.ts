@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { getTripDetails } from '../../services/getTripDetails.service';
+import * as Parse from "parse";
 import { env } from 'src/app/env';
 
 import { GetAddedSightService } from '../../services/get-added-sight.service';
@@ -84,13 +85,14 @@ export class MapComponent implements OnInit, OnDestroy {
     var drawControl = new L.Control.Draw(drawPluginOptions);
     this.map.addControl(drawControl);
 
-  /*  var editableLayers = new L.FeatureGroup();
-    this.map.addLayer(editableLayers); */
 
     this.map.on('draw:created', function(e:any) {
       var type = e.layerType,
         layer = e.layer;
         editableLayers.addLayer(layer);
+
+        console.log(e.layer.editing.latlngs[0]);
+
 
    if (type === 'marker') {
         layer.bindPopup('A popup!');
@@ -111,9 +113,23 @@ export class MapComponent implements OnInit, OnDestroy {
         .openPopup();
     }
 
-
-
   }
+
+/*
+  const SavedShape = Parse.Object.extend("savedShape");
+  const savedShape = new SavedShape();
+
+  savedShape.set(layer);
+  savedShape.save()
+.then((savedShape) => {
+  // Execute any logic that should take place after the object is saved.
+  alert('New object created with objectId: ' + savedShape.id);
+}, (error) => {
+  // Execute any logic that should take place if the save fails.
+  // error is a Parse.Error with an error code and message.
+  alert('Failed to create new object, with error code: ' + error.message);
+});
+*/
 
   async removeSight(xid: any) {
     //remove the selected sight
