@@ -38,3 +38,21 @@
       font-weight: 300;
   }
 
+  .primaryColour {
+      color: #605DEC
+  }
+
+  .alert {
+
+      border-radius: 6px;
+      background-color: #E9E8FC;
+      color: #605DEC;
+      margin-top: 15px;
+      padding-top: 10px;
+      padding-bottom: 4px;
+  }
+
+  i {
+      padding-top: 3px;
+      padding-right: 6px;
+  }

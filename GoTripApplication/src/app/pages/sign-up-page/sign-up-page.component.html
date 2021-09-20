@@ -12,8 +12,7 @@
         <h5 class="form-title"><strong>Create an Account</strong></h5>
         <div class="form-group">
           <label for="name">Name</label>
-          <input (keyup)="onKey($event)" type="text" id="name" name="name" class="form-control form-control-sm" required
-            minlength="3" placeholder="Enter your name" [(ngModel)]="this.username" #name="ngModel">
+          <input (keyup)="onKey($event)" type="text" id="name" name="name" class="form-control form-control-sm" required minlength="3" placeholder="Enter your name" [(ngModel)]="this.username" #name="ngModel">
           <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
 
             <div *ngIf="name.errors?.required" class="alert alert-info" role="alert">
@@ -26,27 +25,23 @@
         </div>
         <div class="form-group">
           <label for="InputEmail">Email address</label>
-          <input (keyup)="onKey($event)" type="email" ng-model="this.email" class="form-control form-control-sm"
-            id="InputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
+          <input (keyup)="onKey($event)" type="email" ng-model="this.email" class="form-control form-control-sm" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
         </div>
         <div class="form-group">
           <label for="InputPassword">Create password</label>
-          <input (keyup)="onKey($event)" type="password" ng-model="this.password" class="form-control form-control-sm"
-            id="InputPassword" placeholder="Enter your password">
+          <input (keyup)="onKey($event)" type="password" ng-model="this.password" class="form-control form-control-sm" id="InputPassword" placeholder="Enter your password">
         </div>
         <password-strength-meter [password]="password"></password-strength-meter>
 
 
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-sm modal-color termsAndCond" data-toggle="modal" id="myBtn"
-          data-target="#termsModal">
+        <button type="button" class="btn btn-primary btn-sm modal-color termsAndCond" data-toggle="modal" id="myBtn" data-target="#termsModal">
           Read Terms and Conditions
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModal"
-          aria-hidden="true">
+        <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -56,7 +51,173 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>The modal works! In here we should put the Terms and Conditions of the use of the app. </p>
+
+                <p class="small">Please read these Terms and Conditions fully and carefully before accessing or using this website (the “Website”),
+                  as they contain important information regarding your legal rights, remedies and obligations.</p>
+                <p class="small">These Terms and conditions, set forth the legally binding terms and conditions for your access and use of the Website.
+                  This Website is maintained, operated and offered by the GoTrip team, and its affiliates and subsidiaries
+                  (collectively, “Team”), and are intended to allow travel organizers to gather travel information and to assist and allow collaboration
+                  in the planning of travel.</p>
+                <p class="small">In particular, Group Travel Organizers should understand how the laws work in the respective destination country (Germany).
+                  Group Travel Organizers should review local laws before sharing a group travel itinerary via GoTrip.If you are a user located in the European Economic Area, Switzerland or United Kingdom, the Data Protection Policy accompanies
+                  these terms and sets forth other terms of our agreement that apply solely to the extent any information you provide to GoTrip includes personal data
+                  of individuals located in the European Economic Area, Switzerland or United Kingdom.</p>
+                <h6>1. Legal information</h6>
+                <p>1.1</p>
+
+                <p class="small">Acceptance of terms: By accessing and/or using the Website, you agree to comply with and be bound by these Terms and conditions.
+                  If you disagree with any of these Terms and Conditions, please refrain from accessing and using the Website.</p>
+                <p>1.2</p>
+                <p class="small">Modification: GoTrip may occasionally modify these Terms and Conditions at its entire discretion. GoTrip will use reasonable efforts to
+                  notify you by posting the modification on the Website and/or provide you notice of the modification by email. Changes to the Terms will be effective at
+                  the time of posting.
+                  You are responsible for regularly reviewing these Terms, which you can find at any time by clicking on the link at the bottom of each page on this website.
+
+                </p>
+                <p class="small">By using the GoTrip Website, you agree that the posting of new or revised Terms or Policies on the Website will constitute adequate and constructive notice
+                  to you of any and all revisions and changes. Continued access or use of the Website after any such changes or after explicitly accepting the new terms upon
+                  logging into the Website shall constitute your consent to such changes and you agree to be bound by them as of the date of the modification.</p>
+
+                <h6>2. Intellectual property rights</h6>
+                <p class="small">The content of the Website, namely but not exclusively the logos, brands, photos, images, illustrations, texts, graphics, layout,
+                  designs, know-how, technologies, drawing, products, registered trademarks, and other materials appearing on the Website (“Content”)are either owned by GoTrip or have been duly licensed to GoTrip by the
+                  concerned right-holders, so as to grant you the rights set forth under Section 4.</p>
+
+                <h6>3. Services</h6>
+                <p>3.1</p>
+                <p class="small">Company makes the Website (hereafter “Services”) available for your access and/or use, as applicable, and solely in connection with your
+                  activities on the Website and further subject to these Terms and conditions. Your rights in the Services are limited solely to those rights expressly granted to you herein. “Services” means all services and resources offered, made
+                  available or enabled via the Website by Company, or third-party
+                  service providers featured on the Website, including any content, software and software-as-a-service made available on the Website. Company hereby grants you a limited, revocable, non-exclusive right and license to access the
+                  Services
+                  made available on the Website, along with any other content and services made available thereon, solely for (a) your personal use in connection with planning needs, or (b) any other purpose clearly stated on
+                  the Site or in these Terms and conditions, all in accordance with these Terms and conditions or as otherwise authorized by Team in writing.</p>
+                <p>3.2</p>
+                <p class="small"> Registration: You will be required to register for the Website in order to access certain Services or to access certain content offered on the Website. If you are required to establish an account in connection with a
+                  particular Service, you must complete the designated registration process for such Service. All required registration information that you provide must be current, complete and accurate and kept up to date on a prompt, timely basis.
+                  It is your sole responsibility to keep your user name, password and other sensitive information confidential. If you become aware of any unauthorized use of your account or any other breach of security, you shall notify GoTrip
+                  immediately. As part of the rights granted to you hereunder, you may invite friends to register for the Website, import your contacts and request that such contacts be contacted by Team for registration on the Website, or create
+                  accounts for your contacts to access the Website and certain features thereof. All such persons shall be considered users of the Website and subject to these Terms and conditions.</p>
+                <p class="small">This Website is intended solely for users who are 13 years of age or older and it is a violation of these Terms and conditions for anyone under the age of 13 to register for the Website. You represent and warrant that
+                  you are 13 years old or
+                  older. Your account may be deleted without warning if you misrepresent your age, whether older or younger. If you are between 13 and 18 years old, you must obtain your parent/guardian’s permission to register for the Website and
+                  post
+                  content thereto.</p>
+                <h6>4. License</h6>
+                <p>4.1</p>
+                <p class="small">License Grant: Subject to your compliance with the terms and conditions of these Terms and conditions, we grant you a limited, non-exclusive, non-transferable license. All rights not expressly granted to you in these
+                  Terms and conditions are
+                  expressly reserved.</p>
+                <p>4.2</p>
+                <p class="small">Restrictions: Except as expressly specified in these Terms and conditions, you shall not (i) copy or modify the Website , including, but not limited to adding new features or otherwise making adaptations that alter
+                  the
+                  functioning of the Website and/or Application; (ii) transfer, sell, rent, lease, distribute, sublicense or otherwise assign any rights to, or any portion of, the Website to any third party; or (iii) make the
+                  functionality of the Website available to multiple users through any means, including, but not limited to distribution of the Website or by uploading the Website to
+                  a network or file-sharing service or through any hosting, application services provider or any other type of service; or (iv) circumvent technological protection measures put in place (if any). The Website contains
+                  trade secrets, and in order to protect those secrets you agree not to disassemble, decompile or reverse engineer the Website, in whole or in part, or permit or authorize a third party to do so, except to the extent
+                  permitted by applicable law.</p>
+                <p>4.3</p>
+                <p class="small">Updates and Upgrades; No Obligation: You acknowledge that GoTrip may from time to time in its sole discretion issue updates or upgrades to the Website , and may automatically update or upgrade the version of the
+                  Website that you are using on the device(s) upon which the Website has been used or installed, without notice. You consent to such automatic updating or upgrading on these devices, and
+                  agree that the terms and conditions of these Terms and conditions will apply to all such updates or upgrades.
+
+                  The inclusion of any Product or Service on this Website at a particular time does not imply or warrant that such Product or Service will be available at any time.</p>
+                <h6>5. Rules of Conduct</h6>
+                <p class="small"> You promise not to use the Website or the Application for any purpose that is prohibited by these Terms and conditions. You are responsible for all of your activity in connection with the Website or the Application.
+                </p>
+                <p>5.1</p>
+                <p class="small">You shall not, and shall not permit any third party to, either (i) take any action or (ii) upload, post, submit or otherwise distribute or facilitate distribution of any Content on or through the Application that: (i)
+                  infringes any
+                  patent, trademark, trade secret, copyright, right of publicity or other right of any other person or entity or violates any law or contractual duty; (ii) is unlawful, such as content that is threatening, abusive, harassing,
+                  defamatory, libellous, fraudulent, invasive of another’s privacy, or tortuous; (iii) constitutes unauthorized or unsolicited advertising, junk or bulk e-mail (“spamming”); (iv) contains software viruses or any other computer codes,
+                  files, or programs that are designed or intended to disrupt, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorized access to any system,
+                  data, password or other information of us or any third party; (v) impersonates any person or entity, including any of our employees or representatives; (vi) includes anyone’s identification documents or sensitive financial
+                  information; or (vii) is otherwise determined by us to be inappropriate at our sole discretion.
+
+                </p>
+                <p>5.2</p>
+                <p class="small">
+
+                  You shall not: (i) take any action that imposes or may impose (as determined by us in our sole discretion) an unreasonable or disproportionately large load on our (or our third party providers’) infrastructure; (ii) interfere or
+                  attempt to interfere with the proper working of the Application or any activities conducted on the Website or the Application; (iii) bypass any measures we may use to prevent or restrict access to the Website or the Application (or
+                  other accounts, computer systems or networks connected to GoTrip services); (iv) run any form of auto-responder or “spam” on GoTrip services; (v) use manual or automated software, devices, or other processes to “crawl” or “spider”
+                  any web pages associated with GoTrip, or any third party web pages accessed through the Website or the Application; (vi) harvest or scrape any Content from the Website or the Application; or (vii) otherwise take any action in
+                  violation of our guidelines and policies that can be found here: https://GoTrip.io/Terms-of-Use
+
+                </p>
+                <p>5.3</p>
+                <p class="small">
+
+                  We also reserve the right to access, read, preserve, and disclose any information as it reasonably believes is necessary to (i) satisfy any applicable law, regulation, legal process or governmental request; (ii) enforce these Terms
+                  of Use, including investigation of potential violations hereof; (iii) detect, prevent, or otherwise address fraud, security or technical issues; (iv) respond to user support requests; or (v) protect our rights, property or safety,
+                  or
+                  that of our users and the public. This includes exchanging information with other companies and organizations for fraud protection and spam prevention.</p>
+                <h6>6. User submissions</h6>
+                <p>6.1</p>
+                <p class="small">
+                  Any personally identifying data and information that you may send via the Internet is protected and treated according to GoTrip’s Privacy Policy.
+
+                </p>
+                <p>6.2</p>
+                <p class="small">
+                  Portions or features of the Website may allow you to contribute or otherwise provide content or other information to the Website. For such information, data, commentary, communications, downloads, files, text,
+                  images, graphics, videos, links, publications, content, tools, resources, programs and products that you post or submit to, or otherwise make available on, the Website (“User Submissions”), you acknowledge and agree that Company
+                  shall
+                  not be liable for any damages arising out of or related to your User Submissions.</p>
+                <p>6.3</p>
+                <p class="small">You represent and warrant that you own all right, title and interest in and to your User Submission that you post, or that you own or control, or have received the necessary licenses or other rights to, contribute
+                  such User
+                  Submissions to the Website . You agree not to disclose any Personal Information (as defined in Company’s Privacy Policy) as part of a User Contribution. In particular, you represent and warrant that you are the
+                  copyright owner of any photographs you make available via the Website or the Application, or that you have all appropriate authority and permissions from the copyright holder of such photographs to permit their dissemination on the
+                  Website or the Application and to otherwise grant the rights addressed herein.</p>
+                <p>6.4</p>
+                <p class="small">
+
+                  You are solely and entirely responsible for all of your User Submissions. You shall assume all risks associated with any reliance on the accuracy, completeness or usefulness of your User Submissions from or by others. Company does
+                  not
+                  guarantee the accuracy, integrity or quality of the material you contribute or the material anyone else contributes as part of a User Submission. You acknowledge and agree that by accessing or using the Website, you may be exposed
+                  to
+                  material from others that you find objectionable. You acknowledge and agree that Team shall not be liable for any actions or inactions resulting from or related to any User Submission made on the Website.</p>
+                <p>6.5</p>
+                <p class="small">
+
+                  GoTrip may allow you to customize the Website using your own data or intellectual property or store data or intellectual property such as customer lists and content libraries on the Website and/or the
+                  Application (such data and intellectual property collectively referred to as “User Data”). You will remain the owner of any User Data and grant Company a non-exclusive, worldwide, royalty-free, and fully paid up license to host such
+                  User Data in order to provide the Services.
+
+                  GoTrip will be billed on a per-seat basis, and you acknowledge and agree that a seat is individually-named or identified user.</p>
+                <h6> 7. Disclaimer of Warranties</h6>
+                <p>7.1</p>
+                <p class="small">
+                  Any Content and all that you find on the Website is furnished to you “as is” in function of its availability, and without guaranty of any sort, express or implied, including, among other, the implied warranty of
+                  merchantability or fitness for any particular purpose.</p>
+                <p>7.2</p>
+                <p class="small">Notwithstanding the fact that GoTrip shall do its best efforts to ensure that the Website fully operate and entitle users to run the Website in accordance with its functionalities,
+                  neither GoTrip shall bear no liability and cannot guarantee that the Content contained on the Website is accurate, complete and up-to date, that the Website contains no defect and that
+                  any such defect shall be corrected. By using this Website and/or this Application, you agree to do so at your own risk and assume full responsibility for any impossibility to use the Website , any loss of data
+                  and costs related to any assistance or repair of any hardware and/or software used by you for connecting to the Website , and you agree to hold GoTrip, and their directors, officers and representatives harmless,
+                  whatsoever, for any damage that may be caused by, result from or be connected to your use of the Website .</p>
+                <p>7.3</p>
+                <p class="small"> If you communicate with us by e-mail, you should note that the security of Internet e-mail is uncertain. By sending sensitive or confidential e-mail messages, you accept the risks of such uncertainty and possible
+                  lack of
+                  confidentiality over the Internet.</p>
+                <h6> 8. Termination</h6>
+                <p>8.1</p>
+                <p class="small"> Access and use of the standard version of the Website as Standard. User shall be unlimited in time, unless terminated in accordance with this Section.
+                </p>
+                <p>8.2</p>
+                <p class="small"> You may terminate the agreement at any time by deleting your account from the Website.
+                </p>
+                <h6> 9. Miscellaneous</h6>
+                <p>9.1</p>
+                <p class="small">The present Terms and conditions embodies the entire agreement concluded between GoTrip and yourself concerning the access and use of the Website and concerning the download, access and use Application
+                  and its Content.</p>
+                <p>9.2</p>
+                <p class="small">These Terms and conditions, as well as your use of the Website shall be governed by and construed in accordance with the laws of Germany without giving effect to conflicts of law principles thereof.</p>
+
+
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary log-in" data-dismiss="modal">Close</button>
@@ -66,13 +227,12 @@
           </div>
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="Check">
-          <label class="form-check-label" for="Check"><small>I agree to the terms and conditions</small></label>
+          <small><input type="checkbox" class="form-check-input" id="Check" name="active" ngModel required>
+        <label class="form-check-label" for="Check"> I agree to the terms and conditions</label></small>
         </div>
         <div class="text-center">
-          <button (click)="onClickMe()" type="submit" class="btn btn-primary w-100 purpleBtn"> Create Account</button>
+          <button (click)="onClickMe()" type="submit" class="btn btn-primary w-100 purpleBtn">Create Account</button>
         </div>
-
         <div class="text-center">
           <a href=" "><small>I already have an account</small></a>
         </div>
@@ -82,9 +242,10 @@
   </div>
 
   <script>
-    $(document).ready(function () {
-      $("#myBtn").click(function () {
+    $(document).ready(function() {
+      $("#myBtn").click(function() {
         $("#termsModal").modal();
       });
     });
+
   </script>
