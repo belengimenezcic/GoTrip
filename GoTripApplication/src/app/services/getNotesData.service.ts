@@ -96,7 +96,7 @@ export class NoteService {
         // news.set("photo", photo )
         // news.set("photo", currentUser.photo)
         news.set("tripId", this.getTripDetails.currentTrip.id)
-
+        news.save()
         return new Observable(observer => {
             news.save(null, {
                 success: (result: any) => {

@@ -28,9 +28,11 @@ export class NotesComponent implements OnInit {
    
     this.noteSvc.startToUpdate()
       .subscribe(note => {
+        this.notes.push(note)
         this.zone.run(() => {
           this.notes.push(note)
         })
+        return true
       })
   }
 
@@ -40,12 +42,12 @@ export class NotesComponent implements OnInit {
 
   sendNote(note: string) {
     this.noteSvc.sendNote(note)
-      .subscribe(success => {
-      }, error => {
-        alert(error)
-      }, () => {
-        this.noteValue = ''
-      })
+    .subscribe(success => {
+    }, error => {
+      alert(error)
+     }, () => {
+      this.noteValue = ''
+     })
   }
 
   getNoteClass(note: any) {
@@ -55,13 +57,6 @@ export class NotesComponent implements OnInit {
       return 'left'
     }
   }
-
-
-
-
-
-
-
 }
 
 
