@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {createNewTrip} from '../../services/newTripForm.service';
 
 @Component({
@@ -6,16 +6,13 @@ import {createNewTrip} from '../../services/newTripForm.service';
   templateUrl: './invitation.component.html',
   styleUrls: ['./invitation.component.css']
 })
-export class InvitationComponent implements OnInit {
+export class InvitationComponent {
   @Input('data') data:any;
-  constructor(private createNewTrip: createNewTrip) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private createNewTrip: createNewTrip) { }
 
   deleteEmail(){
     this.createNewTrip.deleteInvitation(this.data.id)
     console.log('email deleted')
   }
-
 }

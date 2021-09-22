@@ -10,12 +10,9 @@
                 <!-- user profile picture -->
                 <img src="{{photoUrl}}" style="width:129px; height:129px" class="img-thumbnail" alt="profile_photo">
                 <br>
-              <label type="button" class="btn-link">
-                Upload Photo  <input type="file" hidden
-                               (change)="onFileSelected($event)" #fileUpload>
-              </label>
-
-
+                <label type="button" class="btn-link">
+                  Upload Photo  <input type="file" hidden (change)="onFileSelected($event)" #fileUpload>
+                </label>
 
                 <form class="mt-4" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                 <!-- user info -->

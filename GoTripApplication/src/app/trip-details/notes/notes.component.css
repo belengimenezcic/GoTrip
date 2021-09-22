@@ -52,7 +52,9 @@
   border-radius: 4px;
   display: inline-block;
   padding: 6px;
+  border: 0px;
 }
+
 .typebox {
   width: 85%;
   border: 2px solid #ffffff;
@@ -67,10 +69,6 @@
   background-color: #f3f5fc;
   padding: 10px;
   border-radius: 6px;
-  /* 
-  display: flex;
-  flex-direction: row;
-  align-items: stretch; */
 }
 
 ol.list {
@@ -90,4 +88,10 @@ ol.list {
   text-align: left;
   font-weight: 500;
   color: #999eb7;
+}
+
+.notes-area {
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
 }

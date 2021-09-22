@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { currentUser } from '../services/getCurrentUserData.service';
 import * as Parse from 'parse';
-import {File} from "@angular/compiler-cli/src/ngtsc/file_system/testing/src/mock_file_system";
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-header',
@@ -17,10 +15,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Input()
   user: string;
   photoUrl: string;
+
   constructor(private currentUser: currentUser, private router:Router)  {
     this.user = '';
     this.photoUrl = '';
-    //Subject to update the navigation when the user login
+    //Subject to update the navigation when the user logs in
     this.updateHead = this.currentUser.updateUICurrentUser.subscribe(()=>{
       this.getUserDate();
     })
@@ -53,7 +52,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   * Function to run when the user clicks on the logo
   */
   logoButton(){
-    console.log('Changing page now')
     if(this.loggedUser){
       this.router.navigate(['/dashboard']); // Logged users go to the dashboard
     } else {
@@ -66,5 +64,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.updateHead.unsubscribe();
   }
-
 }

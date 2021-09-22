@@ -1,10 +1,9 @@
 .containerWhite{
-        background: #FFFFFF;
-        border: 1px solid #EBECF0;
-        box-sizing: border-box;
-        border-radius: 6px;
-        padding: 30px;
-        
+    background: #FFFFFF;
+    border: 1px solid #EBECF0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 30px;   
 }
 
 .heading {
@@ -35,7 +34,6 @@
 }
 
 .alert {
-    
     border-radius: 6px;
     background-color: #E9E8FC;
     color: #605DEC;

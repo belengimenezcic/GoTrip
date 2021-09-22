@@ -1,5 +1,5 @@
 <div class="container tripcardContainer" (click)="showTripDetails()">
-    <!--This only shows to users who are invited-->
+    <!--This DIV only shows to users who are invited-->
     <div *ngIf="tripPlan.owner !== 'You' && tripPlan.acceptedInvitation == false" class="row row-cols-auto justify-content-end my-2" style="min-height: 65px">
         <div class="col mt-3 flex-grow-0" >
             <span class="cardLableInvitation" (click)="declineInvitation($event)">DECLINE</span>
@@ -8,13 +8,13 @@
             <span class="cardLableInvitation" (click)="acceptInvitationButton($event)">ACCEPT</span>
         </div>
     </div>
-    <!--This is shown if user acceped invitation-->
+    <!--This DIV is shown if user acceped invitation-->
     <div *ngIf="tripPlan.acceptedInvitation == true" class="row row-cols-auto justify-content-end my-2" style="min-height: 65px">
         <div class="col mt-3 flex-grow-0">
             <span class="cardLableInvitationAccepted">ACCEPTED</span>
         </div>
     </div>
-    <!--This only shows to users who is the trip's owner-->
+    <!--This DIV only shows to users who is the trip's owner-->
     <div *ngIf="tripPlan.owner == 'You'" class="row row-cols-auto justify-content-end my-2" style="min-height: 65px;">
         <div class="col mt-3 flex-grow-0">
             <span class="cardLableOwner">OWNER</span>

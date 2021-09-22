@@ -12,14 +12,12 @@ export class LoginPageComponent implements OnInit {
   email: string = ''
   password: string = ''
 
-
   constructor(private router: Router, private currentUser: currentUser) { }
 
   ngOnInit(): void {
   }
 
   onKey(event: any) {
-
     switch (event.target.id) {
       case "InputEmail":
         this.email = event.target.value;
@@ -28,8 +26,6 @@ export class LoginPageComponent implements OnInit {
         this.password = event.target.value;
         break;
     }
-    console.log(event);
-
   }
 
   async onClickMe(){

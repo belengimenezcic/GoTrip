@@ -11,9 +11,7 @@ export class BudgetOptionsComponent implements OnInit, DoCheck {
   @Input() currentTrip:any;
   winner: number = -1;
 
-  constructor(private voteBudgetService: VoteBudgetService) { 
-    
-  }
+  constructor(private voteBudgetService: VoteBudgetService) { }
 
   getDuplicateArrayElements(arr:any){
     var sorted_arr = arr.slice().sort();
@@ -86,13 +84,9 @@ export class BudgetOptionsComponent implements OnInit, DoCheck {
         }
       }
     }
-    
   }
-
 
   saveBudgetPreferences(option:string){
-    
     this.voteBudgetService.voteBudget(option)
   }
-
 }

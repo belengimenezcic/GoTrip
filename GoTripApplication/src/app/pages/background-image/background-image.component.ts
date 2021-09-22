@@ -14,5 +14,4 @@ export class BackgroundImageComponent implements OnInit {
   ngOnInit(): void {
     this.backgroundClass = `background-img-${this.page}`;
   }
-
 }

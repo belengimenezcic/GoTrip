@@ -53,34 +53,36 @@ export class NewTripFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.invitedFriends = this.createNewTrip.invitedFriends;
-    
   }
+
   /*
   *Add current written email to the array: invitedFriends to save all friends email
   */
   invite(){
     this.createNewTrip.invite(this.invitedFriend);
   }
+
   /*
   * Get data from the data picker and save on the tripform object
   */
   fillDates(el:any){
     let dateId = el.id;
+
     if(dateId === 'one'){
       this.tripForm.date.one = {start: new Date(el.date.start), end: new Date(el.date.end)} 
     }else if (dateId === 'two'){
       this.tripForm.date.two = {start: new Date(el.date.start), end: new Date(el.date.end)}
     }else if (dateId === 'three'){
       this.tripForm.date.three = {start: new Date(el.date.start), end: new Date(el.date.end)}
-    } else {
-      
-    }
+    } else { }
   }
+
   /*
   * Function that run after user fills the form and clicks on create button
   */
   async createPlan(el: NgForm, buttonId: any){
-    if (buttonId !== "createTripPlan") return ;
+    if (buttonId !== "createTripPlan") return;
+
     //fill tripForm object
     this.tripForm.title = el.value.Title;
     this.tripForm.destination = el.value.city.name;
@@ -103,7 +105,4 @@ export class NewTripFormComponent implements OnInit {
     this.createNewTrip.cleanInvitationList() //Clean frinds list
     this.router.navigate(['../dashboard']) // Go back to dashboard
   }
-
-  
-
 }

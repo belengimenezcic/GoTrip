@@ -1,33 +1,28 @@
 .mainContainer {
     min-height: 100vh;
   }
-  
-  body {
-    font-family: 'Lato';
-  }
-  
-  .form-title {
+ 
+.form-title {
     padding-top: 30%;
     padding-bottom: 5%;
-  }
+}
   
-  .sign-in {
+.sign-in {
     background: #605DEC;
     margin-top: 10%;
+}
   
-  }
-  
-  .card-overlay {
+.card-overlay {
     background-color: rgba(96, 93, 236, 0.5);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-  }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
-  .highlightColor {
-      color: #605DEC;
-      font-weight: bold;
-  }
+.highlightColor {
+    color: #605DEC;
+    font-weight: bold;
+}
   

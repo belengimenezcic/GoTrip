@@ -8,7 +8,6 @@ const args = process.argv || [];
 const test = args.some(arg => arg.includes('jasmine'));
 const SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
 
-//const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 const databaseUri = process.env.MONGODB_URI;
 
 var options = { allowInsecureHTTP: true };
@@ -26,7 +25,6 @@ const config = {
     classNames: ['Comment', 'Note'], // List of classes to support for query subscriptions
   },
   publicServerURL: 'https://gotrip-app.herokuapp.com/api', // change by the Heroku url to make it able confirm and reset the email and password
-  //verifyUserEmails: true,
   appName: 'GoTrip',
   emailAdapter: SimpleSendGridAdapter({
     apiKey: process.env.SENDGRID,

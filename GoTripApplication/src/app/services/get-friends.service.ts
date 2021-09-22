@@ -1,20 +1,16 @@
 /*
 * This service stores all function related to the friends cards
 */
-
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse';
 
 import { getTripDetails } from  './getTripDetails.service';
 import { currentUser } from './getCurrentUserData.service';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetFriendsService {
-
-  
 
   constructor(private getTripDetails: getTripDetails, private currentUser: currentUser) { }
 
@@ -24,8 +20,6 @@ export class GetFriendsService {
     let user = new Parse.User();
     user.id = this.currentUser.userId;
     
-
-
     let TripPlan = Parse.Object.extend('TripsPlan');
     let tripPlan = new TripPlan();
     let id = this.getTripDetails.currentTrip.id; // set up the trip id to the id of current trip
@@ -37,7 +31,6 @@ export class GetFriendsService {
     let tripList = await queryTrip.find();
 
     if(!tripList[0]){
-     
       return
     }
 
@@ -48,8 +41,6 @@ export class GetFriendsService {
         photo: friend.get('photo') ? friend.get('photo').url() : null ,
         status: 'pending',
       })
-      
-     
     });
 
     // Get list of confirmed friends
@@ -59,13 +50,12 @@ export class GetFriendsService {
         photo: friend.get('photo') ? friend.get('photo').url() : null ,
         status: 'confirmed',
       })
-    
     });
 
     //Add the trip owner
     let tripOwner = await tripList[0].get('owner'); //Getting owner ID
     let queryOwner =  new Parse.Query(Parse.User);
-    queryOwner.equalTo('objectId', tripOwner.id)
+    queryOwner.equalTo('objectId', tripOwner.id);
 
     let ownerData = await queryOwner.find(); // Search data about the user on Parse
     
@@ -78,15 +68,6 @@ export class GetFriendsService {
       photo: photoOwner,
       status: 'organizer'
     })
-
-
     return listFriends
-  }
-
-  /*
-  * Get the number of friends, pending or confirmed, that were invited.
-  */
-  getNumberFriends(){
-
   }
 }

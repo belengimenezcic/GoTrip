@@ -2,7 +2,6 @@
     This is the form the users fill to create a trip. It can also be used
     to edit the trip.
 -->
-
 <div class="container-fluid backgroundDefault">
     <div class="container">
         <app-breadcrumb [origin]="'newTripForm'"></app-breadcrumb>
@@ -19,7 +18,7 @@
                             <input type="text" name="Title" ngModel class="form-control" placeholder="Type the title of your trip" required maxlength="15" #title="ngModel">
                             <span class="counterLimit d-flex justify-content-end">{{title.value ? title.value.length : 0 }}/15</span>
                             <label class="form-label mt-3">Destination <abbr title="This field is mandatory">*</abbr></label>
-                             <ng-select [items]="cities"
+                            <ng-select [items]="cities"
                                     name="city"
                                     bindLabel="name"
                                     placeholder="Select city"

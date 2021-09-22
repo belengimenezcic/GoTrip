@@ -2,7 +2,6 @@
 * These functions are used in the dashboar and trip details to reject 
 * invitations.
 */
-
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse';
 
@@ -12,9 +11,7 @@ import { getTrip } from './getTrip.service';
 @Injectable()
 export class rejectInvitation {
 
-    constructor(private currentUser: currentUser, private getTrip: getTrip){
-        
-    }
+    constructor(private currentUser: currentUser, private getTrip: getTrip){ }
 
     async reject(id:any){
         let tripsPlan = new Parse.Object('TripsPlan'); // Get class

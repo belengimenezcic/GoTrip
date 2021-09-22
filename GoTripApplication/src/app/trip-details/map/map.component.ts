@@ -86,40 +86,47 @@ export class MapComponent implements OnInit, OnDestroy {
       var type = e.layerType,
         layer = e.layer;
       editableLayers.addLayer(layer);
-      console.log(e.layer.editing.latlngs[0]);
       if (type === 'marker') {
         layer.bindPopup('A popup!');
       }
     });
+    this.addSightsMap(this.allSights) // Show places on map
+  }
 
-    for (let i = 0; i < this.allSights.length; i++) {
-      console.log('working')
-      let lat = this.allSights[i].lat;
-      let lon = this.allSights[i].lon;
-      let title = this.allSights[i].title;
+  markers:{}[] = [];
 
-      L.marker([lat, lon]).addTo(this.map).bindPopup(title)
+  addSightsMap(allSights:any){
+    for (let i = 0; i < allSights.length; i++) {
+      let lat = allSights[i].lat;
+      let lon = allSights[i].lon;
+      let title = allSights[i].title;
+     
+     let newMark = L.marker([lat, lon]).addTo(this.map).bindPopup(title)
         .openPopup();
+        this.markers.push(newMark);
     }
-
   }
 
   async removeSight(xid: any) {
+    //Clean the map
+    for(let i = 0; i < this.markers.length; i++){
+      await this.map.removeLayer(this.markers[i])
+    }
     //remove the selected sight
-    console.log(xid)
     await this.AddSightService.removeSight({ sightServerId: xid })
 
     //clean list
     this.getAddedSightService.cleanSightList()
 
     //get all sights added
-    this.getAddedSightService.getSights()
+    await this.getAddedSightService.getSights()
     this.allSights = this.getAddedSightService.addedSights;
-
+    
+    //Add the marks
+    this.addSightsMap(this.allSights)
   }
 
   ngOnDestroy() {
     this.getAddedSightService.cleanSightList()
   }
-
 }

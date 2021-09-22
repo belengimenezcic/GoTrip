@@ -5,16 +5,12 @@
       <app-background-image origin="signup"></app-background-image>
     </div>
     <div class="col-4 px-4">
-
-
-
       <form class="px-4">
         <h5 class="form-title"><strong>Create an Account</strong></h5>
         <div class="form-group">
           <label for="name">Name</label>
           <input (keyup)="onKey($event)" type="text" id="name" name="name" class="form-control form-control-sm" required minlength="3" placeholder="Enter your name" [(ngModel)]="this.username" #name="ngModel">
           <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
-
             <div *ngIf="name.errors?.required" class="alert alert-info" role="alert">
               <small>Name is required.</small>
             </div>
@@ -23,24 +19,22 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-2">
           <label for="InputEmail">Email address</label>
           <input (keyup)="onKey($event)" type="email" ng-model="this.email" class="form-control form-control-sm" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
         </div>
-        <div class="form-group">
+        <div class="form-group mt-2">
           <label for="InputPassword">Create password</label>
           <input (keyup)="onKey($event)" type="password" ng-model="this.password" class="form-control form-control-sm" id="InputPassword" placeholder="Enter your password">
         </div>
         <password-strength-meter [password]="password"></password-strength-meter>
-
-
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-sm modal-color termsAndCond" data-toggle="modal" id="myBtn" data-target="#termsModal">
           Read Terms and Conditions
         </button>
 
-        <!-- Modal -->
+        <!-- Start Modal -->
         <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -51,7 +45,6 @@
                 </button>
               </div>
               <div class="modal-body">
-
                 <p class="small">Please read these Terms and Conditions fully and carefully before accessing or using this website (the “Website”),
                   as they contain important information regarding your legal rights, remedies and obligations.</p>
                 <p class="small">These Terms and conditions, set forth the legally binding terms and conditions for your access and use of the Website.
@@ -214,21 +207,18 @@
                   and its Content.</p>
                 <p>9.2</p>
                 <p class="small">These Terms and conditions, as well as your use of the Website shall be governed by and construed in accordance with the laws of Germany without giving effect to conflicts of law principles thereof.</p>
-
-
-
-
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary log-in" data-dismiss="modal">Close</button>
-
               </div>
             </div>
           </div>
         </div>
+        <!-- End Modal -->
+        
         <div class="form-group form-check">
-          <small><input type="checkbox" class="form-check-input" id="Check" name="active" ngModel required>
-        <label class="form-check-label" for="Check"> I agree to the terms and conditions</label></small>
+          <input type="checkbox" class="form-check-input" id="Check" name="active" ngModel required>
+          <label class="form-check-label" for="Check"><small>I agree to the terms and conditions</small></label>
         </div>
         <div class="text-center">
           <button (click)="onClickMe()" type="submit" class="btn btn-primary w-100 purpleBtn">Create Account</button>
@@ -237,7 +227,6 @@
           <a href=" "><small>I already have an account</small></a>
         </div>
       </form>
-
     </div>
   </div>
 
@@ -247,5 +236,4 @@
         $("#termsModal").modal();
       });
     });
-
   </script>

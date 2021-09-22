@@ -44,13 +44,9 @@ export class AllSightsComponent implements OnInit, OnDestroy {
     } else {
       this.total = 0
     }
-    
   }
-  constructor(private getTripDetails: getTripDetails, private http: HttpClient, private env:env, private voteService: VoteService, private addSightService:AddSightService) { 
   
-  }
-
-  
+  constructor(private getTripDetails: getTripDetails, private http: HttpClient, private env:env, private voteService: VoteService, private addSightService:AddSightService) { }
 
   ngOnInit(): void {
    this.getInitialdata(); 
@@ -73,10 +69,7 @@ export class AllSightsComponent implements OnInit, OnDestroy {
       this.listOfSights = [];
       this.getInitialdata();
       this.getSightList();
-
     })
-    
-    
   }
 
   getInitialdata(){
@@ -98,7 +91,6 @@ export class AllSightsComponent implements OnInit, OnDestroy {
 
     this.http.get<{name: string, country: string, lat: number, lon:number, population: number, timezone: string, status: string}>(url)
     .subscribe(resp=>{
-      
       if(resp.status == 'OK'){
         this.lat = resp.lat;
         this.lon = resp.lon;
@@ -106,11 +98,9 @@ export class AllSightsComponent implements OnInit, OnDestroy {
         this.getSightList() // Starts the fucntion that will look for sights based on the lat and lon
         this.getTripDetails.saveGeoLocation(resp.lat,resp.lon)
       } else {}
-     
-     
     })
-  
-    }
+  }
+
   /*
   * Find the amount of sights based on the place
   */  
@@ -151,7 +141,7 @@ export class AllSightsComponent implements OnInit, OnDestroy {
         for(let i = 0; i <= 4 ; i++){
           if(resp[i].xid) this.getSightInfo(resp[i].xid);
        }
-       // Add a delay of 2 second
+       // Add a delay of 2 second to avoid go over the free limit
        setTimeout(()=>{
         for(let i = 5; i < resp.length; i++){
           if(resp[i].xid) this.getSightInfo(resp[i].xid);
@@ -160,14 +150,11 @@ export class AllSightsComponent implements OnInit, OnDestroy {
       }
       this.calculateTotalItensShown();
       this.isLoading = false;
-      
     })
  }
 
-
   /*
   * This function get specific informations about each place and save in a array of objetcs
-  *
   */
   getSightInfo(xid:string){
     let method: string = 'xid'
@@ -188,7 +175,6 @@ export class AllSightsComponent implements OnInit, OnDestroy {
       /*
       * Check how many friends voted in this sight
       */
-
       let sightWithVotes: any = 0
       this.listOfSightVotes.forEach((el:any)=>{
         if(el.XID == resp.xid) sightWithVotes = el
@@ -202,7 +188,6 @@ export class AllSightsComponent implements OnInit, OnDestroy {
         if(el.XID === resp.xid) sightAdded = el
       })
       
-
       /*
       * Create new object with information to fill the cards
       */
@@ -221,8 +206,6 @@ export class AllSightsComponent implements OnInit, OnDestroy {
         wasAdded: sightAdded.wasAddedToTrip ? true : false
       }
       this.listOfSights = [...this.listOfSights, newSight ]
-      
-      
     })
   }
 
@@ -250,5 +233,4 @@ export class AllSightsComponent implements OnInit, OnDestroy {
     this.updateUi.unsubscribe()
     this.updateUiAfterAddSight.unsubscribe()
   }
-
 }

@@ -2,7 +2,6 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import * as Parse from 'parse';
 import { getTripDetails } from '../../services/getTripDetails.service';
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { NoteService } from '../../services/getNotesData.service';
 
 interface Note {
@@ -21,21 +20,19 @@ export class NotesComponent implements OnInit {
   notes: any[] = []
   noteValue = ""
 
-
-  constructor(private getTripDetails: getTripDetails, private noteSvc: NoteService, private zone: NgZone) {
-
-  }
+  constructor(private getTripDetails: getTripDetails, private noteSvc: NoteService, private zone: NgZone) { }
 
   async ngOnInit() {
     await this.noteSvc.parseLive(); // Start the Parse live query subscription 
     this.notes = await this.noteSvc.getNotes()
    
-
     this.noteSvc.startToUpdate()
       .subscribe(note => {
+        this.notes.push(note)
         this.zone.run(() => {
           this.notes.push(note)
         })
+        return true
       })
   }
 
@@ -45,12 +42,12 @@ export class NotesComponent implements OnInit {
 
   sendNote(note: string) {
     this.noteSvc.sendNote(note)
-      .subscribe(success => {
-      }, error => {
-        alert(error)
-      }, () => {
-        this.noteValue = ''
-      })
+    .subscribe(success => {
+    }, error => {
+      alert(error)
+     }, () => {
+      this.noteValue = ''
+     })
   }
 
   getNoteClass(note: any) {
@@ -60,13 +57,6 @@ export class NotesComponent implements OnInit {
       return 'left'
     }
   }
-
-
-
-
-
-
-
 }
 
 

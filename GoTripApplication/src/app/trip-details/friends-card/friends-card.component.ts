@@ -10,22 +10,15 @@ import { GetFriendsService } from '../../services/get-friends.service';
 export class FriendsCardComponent implements OnInit, OnDestroy {
   @Input() currentTrip:any;
 
-  constructor(private getFriendsService: GetFriendsService) { 
-    
-  }
+  constructor(private getFriendsService: GetFriendsService) { }
 
   ngOnInit(): void {
     if(!this.currentTrip){
       this.currentTrip = {
         invitedFriends: [] 
       }
-     
-    } else {
-      
+    } else { 
     }
-   
-    
-    
   }
 
   ngOnDestroy(){
@@ -33,5 +26,4 @@ export class FriendsCardComponent implements OnInit, OnDestroy {
       invitedFriends: [] 
     }
   }
-
 }

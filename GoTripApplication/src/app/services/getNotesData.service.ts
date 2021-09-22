@@ -15,12 +15,10 @@ class Note {
     public body: String = "";
     public user: String = "";
     public me: Boolean = false;
-    public date: Date = new Date()
-    public photo: String =""
+    public date: Date = new Date();
+    public photo: String ="";
     constructor() { }
-
 }
-
 
 @Injectable()
 export class NoteService {
@@ -28,8 +26,7 @@ export class NoteService {
     private query: any
     user: any = this.currentUser;
 
-    constructor(private currentUser: currentUser, private getTripDetails: getTripDetails,) {
-    }
+    constructor(private currentUser: currentUser, private getTripDetails: getTripDetails,) { }
 
     /*
     * This function get the subscription from Parse live query and save it in 
@@ -43,8 +40,6 @@ export class NoteService {
     }
 
     async getNotes() {
-
-
         // this method works, but maybe subscription open is the better option
         this.query.equalTo('tripId', this.getTripDetails.currentTrip.id)
         let notes: any = []
@@ -62,7 +57,6 @@ export class NoteService {
     
             let ownerData = await noteWriter.find(); // Search data about the user on Parse     
          
-
             note.photo = await ownerData[0].get('photo')._url;
             note.user = from != null ? from : 'Anonymous'
             note.me = user != null ? (user === this.user.userId) : false
@@ -102,7 +96,7 @@ export class NoteService {
         // news.set("photo", photo )
         // news.set("photo", currentUser.photo)
         news.set("tripId", this.getTripDetails.currentTrip.id)
-
+        news.save()
         return new Observable(observer => {
             news.save(null, {
                 success: (result: any) => {

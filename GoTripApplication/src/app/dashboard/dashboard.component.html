@@ -1,6 +1,5 @@
 <!--
     This is the page shows the trips cards.
-
 -->
 
 <div class="container-fluid mainContainer">
@@ -8,7 +7,8 @@
         <div class="row">
             <div class="col-sm-9 col-md-6">
                 <h2>Hello <span class="textHighlightBlue">{{userName}}</span>! <br> Ready for the
-                    next adventure?</h2>
+                    next adventure?
+                </h2>
             </div>
         </div>
         <!--Current trips-->
@@ -19,10 +19,10 @@
             <div class="col-12" style="min-height: 170px;" *ngIf="!isLoading">
                 <div class="row row-cols-sm-1 row-cols-md-4" style="min-height: 166px;">
                     <div *ngFor="let trip of currentTrips" class="col-md-6 col-lg-3 col-sm-5" >
-                        <!-- Trip card component -->
+                        <!-- Trip card component 1 for each trip the user are in-->
                         <app-active-trip-card [tripPlan]="trip" (updateDashboad)="update()"></app-active-trip-card>
                     </div>
-                    <!-- Create trip planner -->
+                    <!-- Create trip planner button-->
                     <div class="col-md-6 col-lg-3 col-sm-5">
                         <app-create-new-trip-plan-button></app-create-new-trip-plan-button>
                     </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <!--Past trips-->
+        <!--Past/Old trips-->
         <div class="row containerWhite">
             <div class="col-12 mb-3">
                 <span class="textSecundary fs-5">Past Trip <span *ngIf="oldTrips.length > 0">({{oldTrips.length}})</span></span>
@@ -43,7 +43,7 @@
             <div class="col-12" style="min-height: 170px;">
                 <div *ngIf="oldTrips.length >= 1" class="row row-cols-sm-1 row-cols-md-4" style=" min-height: 166px;">
                     <div *ngFor="let pastTrip of oldTrips" class="col-sm-12 col-md-6 col-lg-3">
-                        <!-- past Trip card component -->
+                        <!-- past Trip card component to show old trips-->
                        <app-old-trip-card [pastTrip]="pastTrip"></app-old-trip-card>
                     </div>
                 </div>

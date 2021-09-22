@@ -3,19 +3,16 @@
 * information about the selected trip plan.
 *
 */
-
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse';
 
 import { currentUser } from './getCurrentUserData.service';
 
-
 @Injectable()
 export class getTripDetails {
     receiveddata: boolean = false // this will turn to true when the system finish to fetch data from Parse
-    constructor(private currentUser: currentUser){
-
-    }
+    
+    constructor(private currentUser: currentUser){ }
 
     currentTrip = {
         id: '',
@@ -162,6 +159,5 @@ export class getTripDetails {
       saveGeoLocation(lat:number, lon:number){
         this.currentTrip.geoLocation.lat = lat;
         this.currentTrip.geoLocation.lon = lon;
-
       }
 }

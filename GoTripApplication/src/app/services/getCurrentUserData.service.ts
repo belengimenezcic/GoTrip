@@ -7,14 +7,12 @@ import { Subject } from 'rxjs';
 
 export class currentUser {
     updateUICurrentUser = new Subject();
-
     name:string = '';
     userId = '';
 
-
     async getCurrentUser(){
-        
         const currentUser = Parse.User.current();
+        
         if(currentUser){
             let username = await currentUser.get('username');
             this.name = username;

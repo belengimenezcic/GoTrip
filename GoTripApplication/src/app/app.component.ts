@@ -7,16 +7,13 @@ import * as Parse from 'parse';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent {
   title: string = 'GoTrip';
 
   constructor(){
+    // Start the connection with the back-end
     Parse.initialize(environment.serverId, environment.serverMasterKey);
     (Parse as any).serverURL = environment.serverUrl;
-   
   };
-
-  ngOnInit(){
-  
-  }
 }

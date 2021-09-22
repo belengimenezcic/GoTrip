@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light pt-0">
     <div class="container px-0">
-
       <!-- logo & name -->
       <a class="ms-2 navbar-brand" (click)="logoButton()">
         <img src="assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
           GoTrip
       </a>
-
       <!-- button -->
       <div class="collapse navbar-collapse" id="navbarText">
-          <!--Show this button if there is a user-->
+        <!--Show this button if there is a user-->
         <ul *ngIf="loggedUser" class="navbar-nav mr-auto">
           <a routerLink="/create" class="btn btn-outline-primary my-2 my-sm-0" type="button">New Trip</a>
         </ul>
         <!--Show this button if there is NO user-->
         <ul *ngIf="!loggedUser" class="navbar-nav mr-auto">
             <a routerLink=""  class="btn btn-outline-primary my-2 my-sm-0" type="button">Log in to plan now</a>
-          </ul>
+        </ul>
       </div>
       <!-- user profile dropdown -->
       <div class="dropdown pe-4" *ngIf="loggedUser">
