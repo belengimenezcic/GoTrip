@@ -30,10 +30,11 @@
         <password-strength-meter [password]="password"></password-strength-meter>
 
         <!-- Button trigger modal -->
+        <!--
         <button type="button" class="btn btn-primary btn-sm modal-color termsAndCond" data-toggle="modal" id="myBtn" data-target="#termsModal">
           Read Terms and Conditions
         </button>
-
+        -->
         <!-- Start Modal -->
         <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -216,15 +217,15 @@
         </div>
         <!-- End Modal -->
         
-        <div class="form-group form-check">
+        <div class="form-group form-check mt-3">
           <input type="checkbox" class="form-check-input" id="Check" name="active" ngModel required>
-          <label class="form-check-label" for="Check"><small>I agree to the terms and conditions</small></label>
+          <label class="form-check-label" for="Check"><small>I agree to the <a data-toggle="modal" id="myBtn" data-target="#termsModal">terms and conditions</a></small></label>
         </div>
         <div class="text-center">
           <button (click)="onClickMe()" type="submit" class="btn btn-primary w-100 purpleBtn">Create Account</button>
         </div>
-        <div class="text-center">
-          <a href=" "><small>I already have an account</small></a>
+        <div class="text-center mt-3">
+          <a routerLink=""><small>I already have an account</small></a>
         </div>
       </form>
     </div>

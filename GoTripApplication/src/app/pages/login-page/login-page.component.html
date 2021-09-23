@@ -16,13 +16,13 @@
           <label for="InputPassword">Password</label>
           <input (keyup)="onKey($event)" ng-model="this.password" type="password" class="form-control form-control-sm" id="InputPassword"
             placeholder="Enter your password">
-          <a href="forgot-password"><small>Forgot password</small></a>
+          <a routerLink="forgot-password"><small>Forgot password</small></a>
         </div>
         <div class="text-center">
           <button (click)="onClickMe()" type="submit" class="btn btn-primary w-100 purpleBtn text-center">Log In</button>
         </div>
-        <div class="text-center">
-          <a href="signup"><small>Don't have an account yet</small></a>
+        <div class="text-center mt-3">
+          <a routerLink="signup"><small>Don't have an account yet</small></a>
         </div>
       </form>
     </div>

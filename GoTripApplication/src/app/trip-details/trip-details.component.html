@@ -36,8 +36,8 @@
                 <div class="row linkContainer mb-2 mx-1">
                     <nav class="nav">
                         <a class="nav-link" routerLinkActive="activeLink" [routerLink]="['/details/',tripId,'sights']">All Sights</a>
-                        <a class="nav-link" routerLinkActive="activeLink" [routerLink]="['/details/',tripId,'map']">Map</a>
-                        <a class="nav-link" routerLinkActive="activeLink" [routerLink]="['/details/',tripId,'notes']">Notes</a>
+                        <a class="nav-link" routerLinkActive="activeLink" [routerLink]="['/details/',tripId,'map']" [attr.disabled]="!hasAcceptedInvitation ? '' : null">Map</a>
+                        <a class="nav-link" routerLinkActive="activeLink" [routerLink]="['/details/',tripId,'notes']" [attr.disabled]="!hasAcceptedInvitation ? '' : null">Notes</a>
                       </nav>
                 </div>
                 <div class="row mx-1 sightsContainer" style="min-height:100px" *ngIf="hasReceivedData">
